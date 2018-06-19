@@ -40,6 +40,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Acionado.findByDesligadoAcionado", query = "SELECT a FROM Acionado a WHERE a.desligadoAcionado = :desligadoAcionado")})
 public class Acionado implements Serializable {
 
+    @Column(name = "horaAcionado")
+    private String horaAcionado;
+
     @JoinColumn(name = "Alarmes_idAlarmes", referencedColumnName = "idAlarmes")
     @ManyToOne(optional = false)
     private Alarmes alarmesidAlarmes;
@@ -52,9 +55,6 @@ public class Acionado implements Serializable {
     @Column(name = "dataAcionado")
     @Temporal(TemporalType.DATE)
     private Date dataAcionado;
-    @Column(name = "horaAcionado")
-    @Temporal(TemporalType.TIME)
-    private Date horaAcionado;
     @Column(name = "desligadoAcionado")
     private Boolean desligadoAcionado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "acionadoidAcionado")
@@ -83,13 +83,6 @@ public class Acionado implements Serializable {
         this.dataAcionado = dataAcionado;
     }
 
-    public Date getHoraAcionado() {
-        return horaAcionado;
-    }
-
-    public void setHoraAcionado(Date horaAcionado) {
-        this.horaAcionado = horaAcionado;
-    }
 
     public Boolean getDesligadoAcionado() {
         return desligadoAcionado;
@@ -131,10 +124,9 @@ public class Acionado implements Serializable {
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat sdfH = new SimpleDateFormat("HH:mm");
         return " idAcionado = " + idAcionado +"\ndata = "
                 +sdf.format(dataAcionado)+"\nhora = "
-                +sdfH.format(horaAcionado)+"\n";        
+                +horaAcionado+"\n";        
     }
 
     public Alarmes getAlarmesidAlarmes() {
@@ -143,6 +135,14 @@ public class Acionado implements Serializable {
 
     public void setAlarmesidAlarmes(Alarmes alarmesidAlarmes) {
         this.alarmesidAlarmes = alarmesidAlarmes;
+    }
+
+    public String getHoraAcionado() {
+        return horaAcionado;
+    }
+
+    public void setHoraAcionado(String horaAcionado) {
+        this.horaAcionado = horaAcionado;
     }
     
 }
