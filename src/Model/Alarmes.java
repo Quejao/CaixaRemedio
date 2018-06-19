@@ -5,7 +5,6 @@
  */
 package Model;
 
-import Model.Acionado;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -114,7 +113,7 @@ public class Alarmes implements Serializable {
     @Override
     public String toString() {
          SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return " idAcionado = " + idAlarmes +"\ndata = "
+        return " idAlarme= " + idAlarmes +"\ndata = "
                 +sdf.format(dataAlarmes)+"\nhora = "
                 +horaAlarmes+"\n"; 
     }
