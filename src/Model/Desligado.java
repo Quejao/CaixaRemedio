@@ -35,6 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Desligado.findByHoraDesligado", query = "SELECT d FROM Desligado d WHERE d.horaDesligado = :horaDesligado")})
 public class Desligado implements Serializable {
 
+    @Column(name = "horaDesligado")
+    private String horaDesligado;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -43,9 +46,6 @@ public class Desligado implements Serializable {
     @Column(name = "dataDesligado")
     @Temporal(TemporalType.DATE)
     private Date dataDesligado;
-    @Column(name = "horaDesligado")
-    @Temporal(TemporalType.TIME)
-    private Date horaDesligado;
     @JoinColumn(name = "Acionado_idAcionado", referencedColumnName = "idAcionado")
     @ManyToOne(optional = false)
     private Acionado acionadoidAcionado;
@@ -73,13 +73,6 @@ public class Desligado implements Serializable {
         this.dataDesligado = dataDesligado;
     }
 
-    public Date getHoraDesligado() {
-        return horaDesligado;
-    }
-
-    public void setHoraDesligado(Date horaDesligado) {
-        this.horaDesligado = horaDesligado;
-    }
 
     public Acionado getAcionadoidAcionado() {
         return acionadoidAcionado;
@@ -112,10 +105,17 @@ public class Desligado implements Serializable {
     @Override
     public String toString() {
          SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat sdfH = new SimpleDateFormat("HH:mm");
-        return " idAcionado = " + idDesligado +"\ndata = "
+        return " idDesligado = " + idDesligado +"\ndata = "
                 +sdf.format(dataDesligado)+"\nhora = "
-                +sdfH.format(horaDesligado)+"\n"; 
+                +horaDesligado+"\n"; 
+    }
+
+    public String getHoraDesligado() {
+        return horaDesligado;
+    }
+
+    public void setHoraDesligado(String horaDesligado) {
+        this.horaDesligado = horaDesligado;
     }
     
 }
