@@ -27,8 +27,8 @@ public class Desligado implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "idalarme")
-    private Integer idalarme;
+    @Column(name = "iddesligado")
+    private Integer iddesligado;
     @Column(name = "datadesligado")
     private String datadesligado;
     @Column(name = "horadesligado")
@@ -39,16 +39,16 @@ public class Desligado implements Serializable {
     public Desligado() {
     }
 
-    public Desligado(Integer idalarme) {
-        this.idalarme = idalarme;
+    public Desligado(Integer iddesligado) {
+        this.iddesligado = iddesligado;
     }
 
-    public Integer getIdalarme() {
-        return idalarme;
+    public Integer getIddesligado() {
+        return iddesligado;
     }
 
-    public void setIdalarme(Integer idalarme) {
-        this.idalarme = idalarme;
+    public void setIddesligado(Integer iddesligado) {
+        this.iddesligado = iddesligado;
     }
 
     public String getDatadesligado() {
@@ -78,7 +78,7 @@ public class Desligado implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idalarme != null ? idalarme.hashCode() : 0);
+        hash += (iddesligado != null ? iddesligado.hashCode() : 0);
         return hash;
     }
 
@@ -89,7 +89,7 @@ public class Desligado implements Serializable {
             return false;
         }
         Desligado other = (Desligado) object;
-        if ((this.idalarme == null && other.idalarme != null) || (this.idalarme != null && !this.idalarme.equals(other.idalarme))) {
+        if ((this.iddesligado == null && other.iddesligado != null) || (this.iddesligado != null && !this.iddesligado.equals(other.iddesligado))) {
             return false;
         }
         return true;
@@ -97,7 +97,7 @@ public class Desligado implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Desligado[ idalarme=" + idalarme + " ]";
+        return "Desligado[ iddesligado=" + iddesligado + ", "+ datadesligado + ", " +horadesligado+", "+remediodesligado+" ]";
     }
     
 }

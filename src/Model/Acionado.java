@@ -97,7 +97,7 @@ public class Acionado implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Acionado[ idacionado=" + idacionado + " ]";
+        return "Acionado[ idacionado=" + idacionado + ", "+ dataacionado + ", " +horaacionado+", "+remedioacionado+" ]";
     }
     
 }
