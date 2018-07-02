@@ -29,7 +29,7 @@ public class CaixaRemedio {
         DB_Direct db = new DB_Direct("src/DAOs/local.txt");
         DAOAlarmes al = new DAOAlarmes();
         DAOAcionado ac = new DAOAcionado();
-        //inserirAlarme(2, 7, 2018, "16:30", "Estomazil");
+//        inserirAlarme(2, 7, 2018, "13:00", "Estomazil");
         printAlarme();
         
 //        List<Alarme> als = al.list();

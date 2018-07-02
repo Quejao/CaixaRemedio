@@ -49,6 +49,7 @@ public class GUI1 extends JFrame implements Observer {
         //buscar parâmetros salvos
         try {
             acessaArduino = new AcessaArduino(this); //passa como parâmetro a classe GUI (this) para informar quem é o Observador
+            acessaArduino.setPortaSelecionada("/dev/ttyACM1");
             System.out.println("Porta detectada: " + acessaArduino.getPortaSelecionada());
 
         } catch (Exception e) {

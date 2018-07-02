@@ -70,6 +70,10 @@ public class AcessaArduino extends Observable implements SerialPortEventListener
         return serialPort;
     }
 
+    public void setPortaSelecionada(String portaSelecionada) {
+        this.portaSelecionada = portaSelecionada;
+    }
+
     private void initialize() {
         CommPortIdentifier portId = null;
         Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
@@ -87,7 +91,7 @@ public class AcessaArduino extends Observable implements SerialPortEventListener
                 }
             }
         }
-
+        
         if (portId == null) {
             System.out.println("Não encontrou a porta USB destinada ao Arduino");
             return;
