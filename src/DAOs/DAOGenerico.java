@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public class DAOGenerico<T> {
 
-    public static EntityManager em = Persistence.createEntityManagerFactory("CaixaRemedioPU").createEntityManager();
+    public static EntityManager em = Persistence.createEntityManagerFactory("UP").createEntityManager();
     private Class clazz;
 
     public DAOGenerico(Class clazz) {

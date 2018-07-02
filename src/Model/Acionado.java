@@ -6,105 +6,79 @@
 package Model;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author lcorra
+ * @author leotr
  */
 @Entity
-@Table(name = "Acionado")
-@XmlRootElement
+@Table(name = "acionado")
 @NamedQueries({
-    @NamedQuery(name = "Acionado.findAll", query = "SELECT a FROM Acionado a")
-    , @NamedQuery(name = "Acionado.findByIdAcionado", query = "SELECT a FROM Acionado a WHERE a.idAcionado = :idAcionado")
-    , @NamedQuery(name = "Acionado.findByDataAcionado", query = "SELECT a FROM Acionado a WHERE a.dataAcionado = :dataAcionado")
-    , @NamedQuery(name = "Acionado.findByHoraAcionado", query = "SELECT a FROM Acionado a WHERE a.horaAcionado = :horaAcionado")
-    , @NamedQuery(name = "Acionado.findByDesligadoAcionado", query = "SELECT a FROM Acionado a WHERE a.desligadoAcionado = :desligadoAcionado")})
+    @NamedQuery(name = "Acionado.findAll", query = "SELECT a FROM Acionado a")})
 public class Acionado implements Serializable {
-
-    @Column(name = "horaAcionado")
-    private String horaAcionado;
-
-    @JoinColumn(name = "Alarmes_idAlarmes", referencedColumnName = "idAlarmes")
-    @ManyToOne(optional = false)
-    private Alarmes alarmesidAlarmes;
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "idAcionado")
-    private Integer idAcionado;
-    @Column(name = "dataAcionado")
-    @Temporal(TemporalType.DATE)
-    private Date dataAcionado;
-    @Column(name = "desligadoAcionado")
-    private Boolean desligadoAcionado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "acionadoidAcionado")
-    private Collection<Desligado> desligadoCollection;
+    @Column(name = "idacionado")
+    private Integer idacionado;
+    @Column(name = "dataacionado")
+    private String dataacionado;
+    @Column(name = "horaacionado")
+    private String horaacionado;
+    @Column(name = "remedioacionado")
+    private String remedioacionado;
 
     public Acionado() {
     }
 
-    public Acionado(Integer idAcionado) {
-        this.idAcionado = idAcionado;
+    public Acionado(Integer idacionado) {
+        this.idacionado = idacionado;
     }
 
-    public Integer getIdAcionado() {
-        return idAcionado;
+    public Integer getIdacionado() {
+        return idacionado;
     }
 
-    public void setIdAcionado(Integer idAcionado) {
-        this.idAcionado = idAcionado;
+    public void setIdacionado(Integer idacionado) {
+        this.idacionado = idacionado;
     }
 
-    public Date getDataAcionado() {
-        return dataAcionado;
+    public String getDataacionado() {
+        return dataacionado;
     }
 
-    public void setDataAcionado(Date dataAcionado) {
-        this.dataAcionado = dataAcionado;
+    public void setDataacionado(String dataacionado) {
+        this.dataacionado = dataacionado;
     }
 
-
-    public Boolean getDesligadoAcionado() {
-        return desligadoAcionado;
+    public String getHoraacionado() {
+        return horaacionado;
     }
 
-    public void setDesligadoAcionado(Boolean desligadoAcionado) {
-        this.desligadoAcionado = desligadoAcionado;
+    public void setHoraacionado(String horaacionado) {
+        this.horaacionado = horaacionado;
     }
 
-    @XmlTransient
-    public Collection<Desligado> getDesligadoCollection() {
-        return desligadoCollection;
+    public String getRemedioacionado() {
+        return remedioacionado;
     }
 
-    public void setDesligadoCollection(Collection<Desligado> desligadoCollection) {
-        this.desligadoCollection = desligadoCollection;
+    public void setRemedioacionado(String remedioacionado) {
+        this.remedioacionado = remedioacionado;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idAcionado != null ? idAcionado.hashCode() : 0);
+        hash += (idacionado != null ? idacionado.hashCode() : 0);
         return hash;
     }
 
@@ -115,7 +89,7 @@ public class Acionado implements Serializable {
             return false;
         }
         Acionado other = (Acionado) object;
-        if ((this.idAcionado == null && other.idAcionado != null) || (this.idAcionado != null && !this.idAcionado.equals(other.idAcionado))) {
+        if ((this.idacionado == null && other.idacionado != null) || (this.idacionado != null && !this.idacionado.equals(other.idacionado))) {
             return false;
         }
         return true;
@@ -123,26 +97,7 @@ public class Acionado implements Serializable {
 
     @Override
     public String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return " idAcionado = " + idAcionado +"\ndata = "
-                +sdf.format(dataAcionado)+"\nhora = "
-                +horaAcionado+"\n";        
-    }
-
-    public Alarmes getAlarmesidAlarmes() {
-        return alarmesidAlarmes;
-    }
-
-    public void setAlarmesidAlarmes(Alarmes alarmesidAlarmes) {
-        this.alarmesidAlarmes = alarmesidAlarmes;
-    }
-
-    public String getHoraAcionado() {
-        return horaAcionado;
-    }
-
-    public void setHoraAcionado(String horaAcionado) {
-        this.horaAcionado = horaAcionado;
+        return "Model.Acionado[ idacionado=" + idacionado + " ]";
     }
     
 }

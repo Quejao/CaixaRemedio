@@ -5,36 +5,36 @@
  */
 package DAOs;
 
-import Model.Alarmes;
+import Model.Alarme;
 import java.util.List;
 
 /**
  *
  * @author lcorra
  */
-public class DAOAlarmes extends DAOGenerico<Alarmes>{
+public class DAOAlarmes extends DAOGenerico<Alarme>{
     
     public DAOAlarmes() {
-        super(Alarmes.class);
+        super(Alarme.class);
     }
 
     @Override
-    public List<Alarmes> list() {
+    public List<Alarme> list() {
         return super.list(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void remover(Alarmes e) {
+    public void remover(Alarme e) {
         super.remover(e); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void atualizar(Alarmes e) {
+    public void atualizar(Alarme e) {
         super.atualizar(e); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void inserir(Alarmes e) {
+    public void inserir(Alarme e) {
         super.inserir(e); //To change body of generated methods, choose Tools | Templates.
     }
     

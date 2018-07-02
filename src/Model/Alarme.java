@@ -19,27 +19,27 @@ import javax.persistence.Table;
  * @author leotr
  */
 @Entity
-@Table(name = "desligado")
+@Table(name = "alarme")
 @NamedQueries({
-    @NamedQuery(name = "Desligado.findAll", query = "SELECT d FROM Desligado d")})
-public class Desligado implements Serializable {
+    @NamedQuery(name = "Alarme.findAll", query = "SELECT a FROM Alarme a")})
+public class Alarme implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "idalarme")
     private Integer idalarme;
-    @Column(name = "datadesligado")
-    private String datadesligado;
-    @Column(name = "horadesligado")
-    private String horadesligado;
-    @Column(name = "remediodesligado")
-    private String remediodesligado;
+    @Column(name = "dataalarme")
+    private String dataalarme;
+    @Column(name = "horaalarme")
+    private String horaalarme;
+    @Column(name = "remedioalarme")
+    private String remedioalarme;
 
-    public Desligado() {
+    public Alarme() {
     }
 
-    public Desligado(Integer idalarme) {
+    public Alarme(Integer idalarme) {
         this.idalarme = idalarme;
     }
 
@@ -51,28 +51,28 @@ public class Desligado implements Serializable {
         this.idalarme = idalarme;
     }
 
-    public String getDatadesligado() {
-        return datadesligado;
+    public String getDataalarme() {
+        return dataalarme;
     }
 
-    public void setDatadesligado(String datadesligado) {
-        this.datadesligado = datadesligado;
+    public void setDataalarme(String dataalarme) {
+        this.dataalarme = dataalarme;
     }
 
-    public String getHoradesligado() {
-        return horadesligado;
+    public String getHoraalarme() {
+        return horaalarme;
     }
 
-    public void setHoradesligado(String horadesligado) {
-        this.horadesligado = horadesligado;
+    public void setHoraalarme(String horaalarme) {
+        this.horaalarme = horaalarme;
     }
 
-    public String getRemediodesligado() {
-        return remediodesligado;
+    public String getRemedioalarme() {
+        return remedioalarme;
     }
 
-    public void setRemediodesligado(String remediodesligado) {
-        this.remediodesligado = remediodesligado;
+    public void setRemedioalarme(String remedioalarme) {
+        this.remedioalarme = remedioalarme;
     }
 
     @Override
@@ -85,10 +85,10 @@ public class Desligado implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Desligado)) {
+        if (!(object instanceof Alarme)) {
             return false;
         }
-        Desligado other = (Desligado) object;
+        Alarme other = (Alarme) object;
         if ((this.idalarme == null && other.idalarme != null) || (this.idalarme != null && !this.idalarme.equals(other.idalarme))) {
             return false;
         }
@@ -97,7 +97,7 @@ public class Desligado implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Desligado[ idalarme=" + idalarme + " ]";
+        return "Alarme[ idalarme=" + idalarme + ", "+ dataalarme + ", " +horaalarme+", "+remedioalarme+" ]";
     }
     
 }
