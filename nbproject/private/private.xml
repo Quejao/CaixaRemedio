@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/leotr/OneDrive/Documentos/BCC/9semestre/CF/CaixaRemedio/src/DAOs/ManipulaArquivo.java</file>
-            <file>file:/C:/Users/leotr/OneDrive/Documentos/BCC/9semestre/CF/CaixaRemedio/src/DAOs/DB_Direct_Connection.java</file>
-            <file>file:/C:/Users/leotr/OneDrive/Documentos/BCC/9semestre/CF/CaixaRemedio/src/DAOs/DB_Direct.java</file>
-            <file>file:/C:/Users/leotr/OneDrive/Documentos/BCC/9semestre/CF/CaixaRemedio/src/Model/Alarme.java</file>
-            <file>file:/C:/Users/leotr/OneDrive/Documentos/BCC/9semestre/CF/CaixaRemedio/src/DAOs/DAOAlarmes.java</file>
-            <file>file:/C:/Users/leotr/OneDrive/Documentos/BCC/9semestre/CF/CaixaRemedio/src/caixaremedio/CaixaRemedio.java</file>
-            <file>file:/C:/Users/leotr/OneDrive/Documentos/BCC/9semestre/CF/CaixaRemedio/src/DAOs/DAOGenerico.java</file>
-            <file>file:/C:/Users/leotr/OneDrive/Documentos/BCC/9semestre/CF/CaixaRemedio/src/DAOs/local.txt</file>
+            <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/DAOs/local.txt</file>
+            <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/Controller/CaixaRemedio.java</file>
+            <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/Arduino/AcessaArduino.java</file>
+            <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/Controller/GUI1.java</file>
+            <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/META-INF/persistence.xml</file>
         </group>
     </open-files>
 </project-private>
