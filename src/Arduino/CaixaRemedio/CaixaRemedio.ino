@@ -224,21 +224,21 @@ void loop()
     int diaNovo = serialAlarme[1] - 48;
     int horaNovo = ((serialAlarme[3] - 48) * 10) + (serialAlarme[4] - 48);
     int minutoNovo = ((serialAlarme[6] - 48) * 10) + (serialAlarme[7] - 48);
-    
+    int index = diaNovo -1;
     
     if(horaNovo > 12){
-      n[diaNovo-1].diaS = diaNovo;
-      n[diaNovo-1].hora = horaNovo;
-      n[diaNovo-1].minuto = minutoNovo;
+      n[index].diaS = diaNovo;
+      n[index].hora = horaNovo;
+      n[index].minuto = minutoNovo;
       Serial.print(n[diaNovo-1].diaS);
       Serial.print(" - ");
       Serial.print(n[diaNovo-1].hora);
       Serial.print(":");
       Serial.println(n[diaNovo-1].minuto);
     }else{
-      m[diaNovo-1].diaS = diaNovo;
-      m[diaNovo-1].hora = horaNovo;
-      m[diaNovo-1].minuto = minutoNovo;
+      m[index].diaS = diaNovo;
+      m[index].hora = horaNovo;
+      m[index].minuto = minutoNovo;
       Serial.print(m[diaNovo-1].diaS);
       Serial.print(" - ");
       Serial.print(m[diaNovo-1].hora);
@@ -246,7 +246,6 @@ void loop()
       Serial.println(m[diaNovo-1].minuto);
     }
   }
-  
   //variavel auxiliar para controle dos vetores
   auxD = myRTC.dayofweek - 1;
   if (auxD < 0) {
@@ -255,11 +254,11 @@ void loop()
 
   //verifica se algum alarme deve ser acionado
   if (myRTC.hours > 12) {
-    if (/*(myRTC.dayofweek == n[auxD].diaS) && */(myRTC.hours == n[auxD].hora) && (myRTC.minutes == n[auxD].minuto) && (myRTC.seconds <= 5)) {
+    if ((myRTC.dayofweek == auxD) && (myRTC.hours == n[auxD].hora) && (myRTC.minutes == n[auxD].minuto) && (myRTC.seconds <= 5)) {
       flagA = 1; //flag indicando que um alarme deve ser acionado
     }
   } else {
-    if (/*(myRTC.dayofweek == m[auxD].diaS) && */(myRTC.hours == m[auxD].hora) && (myRTC.minutes == m[auxD].minuto) && (myRTC.seconds <= 5)) {
+    if ((myRTC.dayofweek == auxD) && (myRTC.hours == m[auxD].hora) && (myRTC.minutes == m[auxD].minuto) && (myRTC.seconds <= 5)) {
       flagA = 1;
     }
   }
@@ -388,7 +387,6 @@ void imprime_dia_da_semana(int dia)
 
 //funcao para acender o LED equivalente ao alarme tocado
 void acendeLED(int dia, int hora) {
-  switch (dia)
   {
     case 1:
       if (hora < 12) {

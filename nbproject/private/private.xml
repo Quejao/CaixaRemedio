@@ -5,8 +5,8 @@
         <group>
             <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/DAOs/local.txt</file>
             <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/Controller/CaixaRemedio.java</file>
+            <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/Controller/Observador.java</file>
             <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/Arduino/AcessaArduino.java</file>
-            <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/Controller/GUI1.java</file>
             <file>file:/home/lcorra/Documentos/CF/CaixaRemedio/src/META-INF/persistence.xml</file>
         </group>
     </open-files>
