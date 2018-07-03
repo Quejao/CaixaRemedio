@@ -116,7 +116,7 @@ public class Observador implements Observer{
             String v[] = a.toString().split("/");
             String c[] = a.toString().split(":");
             comando = "a"+v[1]+","+c[0]+":"+c[1];
-            acessaArduino.setDataToArduino(p, "a2,14,54");
+            acessaArduino.setDataToArduino(p, "a2,18,12");
             System.out.println(a);
         }
     }

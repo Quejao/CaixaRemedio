@@ -87,8 +87,7 @@ void setup()
   Serial.println("Digite o alarme, colocando o char a + o dia da semana,\n hora e minutos com dois digitos cada separados por virgula(domingo = 1)\nEX:a1,02,22");
 }
 
-void loop()
-{
+void loop(){
   // Le as informacoes do RTC
   myRTC.updateTime();
 
@@ -218,6 +217,8 @@ void loop()
   n[6].minuto = 30;
   */
   
+   //leStringSerial();
+  
   serialAlarme = Serial.readString();
   
   if(serialAlarme[0] == 'a'){
@@ -231,6 +232,8 @@ void loop()
       n[index].hora = horaNovo;
       n[index].minuto = minutoNovo;
       Serial.print(n[diaNovo-1].diaS);
+      Serial.print(" - ");
+      Serial.print(index);
       Serial.print(" - ");
       Serial.print(n[diaNovo-1].hora);
       Serial.print(":");
@@ -254,11 +257,11 @@ void loop()
 
   //verifica se algum alarme deve ser acionado
   if (myRTC.hours > 12) {
-    if ((myRTC.dayofweek == auxD) && (myRTC.hours == n[auxD].hora) && (myRTC.minutes == n[auxD].minuto) && (myRTC.seconds <= 5)) {
+    if ((myRTC.dayofweek == auxD+1) && (myRTC.hours == n[auxD].hora) && (myRTC.minutes == n[auxD].minuto) && (myRTC.seconds <= 5)) {
       flagA = 1; //flag indicando que um alarme deve ser acionado
     }
   } else {
-    if ((myRTC.dayofweek == auxD) && (myRTC.hours == m[auxD].hora) && (myRTC.minutes == m[auxD].minuto) && (myRTC.seconds <= 5)) {
+    if ((myRTC.dayofweek == auxD+1) && (myRTC.hours == m[auxD].hora) && (myRTC.minutes == m[auxD].minuto) && (myRTC.seconds <= 5)) {
       flagA = 1;
     }
   }
@@ -387,6 +390,7 @@ void imprime_dia_da_semana(int dia)
 
 //funcao para acender o LED equivalente ao alarme tocado
 void acendeLED(int dia, int hora) {
+  switch(dia)
   {
     case 1:
       if (hora < 12) {
@@ -438,4 +442,20 @@ void acendeLED(int dia, int hora) {
       }
       break;
   }
+}
+
+String leStringSerial(){
+  String conteudo = "";
+  char caractere;
+  
+  while(Serial.available() > 0) {
+    caractere = Serial.read();
+    if (caractere != '\n'){
+      conteudo.concat(caractere);
+      serialAlarme = conteudo;
+    }
+    
+  }
+  
+  return conteudo;
 }
